@@ -1,0 +1,105 @@
+/* IMPOSTAZIONI GENERALI */
+html {
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color: #393d41;
+
+}
+
+header {
+    margin: 0;
+    background-color: black;
+
+}
+
+#banner,
+nav {
+    background-image: url("../images/banner.jpg");
+    background-position: center;
+    padding: 50px;
+}
+
+.color {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #25a2c3;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.7em;
+}
+
+#circle {
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+}
+div img {
+    width: 400px;
+    height: 270px;
+}
+#orange,
+nav a {
+    background-color: #e22a2c;
+    color: white;
+}
+nav a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 10px 40px;
+    border: 1px solid #e22a2c;
+    border-radius: 5px;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #f042cf;
+}
+
+P {
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    padding: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+footer {
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #25a2c3;
+    color: white;
+}
+h2 {
+    padding: 30px;
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f042cf;
+}
