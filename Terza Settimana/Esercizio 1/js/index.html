@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eserzio Js</title>
+        <style>
+
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                padding: 2em;
+                background: blue;
+                color: aliceblue;
+                font-size: 2rem;
+                font-weight: 400;
+            }
+            div {
+                background: yellow;
+                width: 500px;
+                height: 500px;
+                color: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            div a {
+                color: tomato;
+                border: 6px solid black;
+                padding: 50px;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 id="welcome">Benvenuto / Benvenuta</h1>
+        <p>Facciamo un pò di pratica con javascript</p>
+        <h2>In questa lezione faremo pratica con :</h2>
+        <ul>
+            <li>Esercizi di integrazione dei file js in progetti
+                <abbr title="Hyper Text Mark Linguage">HTML</abbr>
+            </li>
+            <li>Esercizi sul corretto naming</li>
+            <li>Esercizi con le direttive di output</li>
+        </ul>
+        <br>
+        <div>
+            <a onclick="Myfunction()" href="" title="Javascript">Js</a>
+        </div>
+        <br>
+        <p id="myP">Leone</p>
+        <p id="demo"></p>
+        <p>uso la console principalmente quando voglio fare il debug (controllare il
+            flusso del codice)</p>
+
+        <script>
+            // -------> Alert
+            function Myfunction() {
+                window.alert('Ciao! Studiamo...');
+                alert('...javascript');
+            }
+        </script>
+
+        <script>
+            // -------> Inner
+            var html = document
+                .getElementById('myP')
+                .innerHTML = ('Coniglio') // assegno alla variabile html il contenuto di myP
+
+            document
+                .getElementsByClassName('demo')
+                .innerHTML = mia_variabile // uso la variabile per stampare dentro a demo
+        </script>
+
+        <script>
+            //-------> write
+            document.write('Inziamo a studiare');
+            document.write('<br>');
+            document.write('JAVASCRIPT');
+        </script>
+
+        <script>
+            //-----> Console log
+            console.log(12 * 2); // lo vedo solo nello strumento di debug (testo destro --> debug )
+        </script>
+<script src="../js/index.js"></script>
+<script> document.write('<br>');</script>
+<script src="../js/naming.js"></script>
+    </body>
+</html>
