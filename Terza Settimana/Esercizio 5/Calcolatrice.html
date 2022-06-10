@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <title>Calcolatrice</title>
+    </head>
+    <body>
+
+        <div class="content">
+            <h1>La mia Calcolatrice in Javascript !</h1><br>
+            <!-- Assegno attributo readonly (solo lettura) in modo che i valori di .display 
+                non possono essere modificati dalluternte  
+            -->
+            <input
+                type="number"
+                name="display"
+                id="operazioni"
+                readonly="readonly"
+                class="display">
+        </div>
+        <!--all’evento onclick per i tasti, abbiamo inserito n(this.id), 
+            in questo modo infatti recuperiamo in automatico l’id che è dichiarato in ciascun input.
+         -->
+        <div class="content">
+            <div class="content">
+                <input type="submit" id="7" value="7" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="8" value="8" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="9" value="9" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="/" value="/" onclick="n(this.id)" class="tasto">
+            </div>
+            <div class="content">
+                <input type="submit" id="4" value="4" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="5" value="5" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="6" value="6" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="*" value="X" onclick="n(this.id)" class="tasto">
+            </div>
+            <div class="content">
+                <input type="submit" id="1" value="1" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="2" value="2" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="3" value="3" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="-" value="-" onclick="n(this.id)" class="tasto">
+            </div>
+            <div class="content">
+                <input type="submit" value="C" onclick="cancella()" class="tasto">
+                <input type="submit" id="0" value="0" onclick="n(this.id)" class="tasto">
+                <input type="submit" id="." value="." onclick="n(this.id)" class="tasto">
+                <input type="submit" id="+" value="+" onclick="n(this.id)" class="tasto">
+            </div>
+            <div class="content">
+                <!--Mentre all’evento onclick di button assegniamo la funzione operazione()-->
+                <button value="=" onclick="operazione()" class="uguale tasto">=</button>
+            </div>
+        </div>
+        <script src="assets/js/scpript.js"></script>
+    </body>
+</html>

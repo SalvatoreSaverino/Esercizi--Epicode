@@ -1,0 +1,43 @@
+ /* Text styling */
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);
+
+
+/* Basic reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;}
+
+body{
+   
+    font-family:"Quicksand", sans-serif;
+    text-align:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.tasto {
+    background-color:lightgrey ;
+    color: #105896;
+    font-size: 22pt;
+    font-weight: bold;
+    border: none;
+    margin: 4px 2px;
+    height: 40px;
+    width: 46px;
+}
+.display {
+    background: none;
+    color:  #105896;
+    font-size: 24pt;
+    font-weight: bold;
+    border: #105896 solid 2px;
+    margin: 4px 2px;
+    width: 204px;
+    height: 40px;            
+}
+.uguale {
+    width: 208px;
+}
