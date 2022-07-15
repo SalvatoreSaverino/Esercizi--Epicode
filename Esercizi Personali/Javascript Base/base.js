@@ -1081,6 +1081,7 @@ Puoi aggiungere nuove proprietà agli oggetti JavaScript esistenti proprio come 
 Ecco come aggiungere una proprietà bark a ourDog:
 
 ourDog.bark = "bow-wow";
+
 oppure
 
 ourDog["bark"] = "bow-wow";
@@ -1124,4 +1125,604 @@ Dopo l'ultima riga mostrata sopra, ourDog apparirà così:
   "friends": ["everything!"]
 }
 
+
+Esercizio 
+Collezione di dischi
+
+Ti viene dato un oggetto letterale che rappresenta una parte della tua collezione di album musicali. 
+Ogni album ha un id numerico unico come chiave, e diverse altre proprietà. 
+Non tutti gli album hanno informazioni complete.
+
+Partirai con una funzione updateRecords che prende un oggetto letterale, records, contenente la collezione di album musicali, 
+un id, una proprietà prop (come artist o tracks), e un valore value. 
+Completa la funzione usando le regole sottostanti per modificare l'oggetto passato alla funzione.
+
+La tua funzione deve sempre restituire l'intero oggetto della raccolta di dischi.
+Se prop non è tracks e value non è una stringa vuota, aggiorna o imposta la prop di quell'album a value.
+Se prop è tracks ma l'album non ha una proprietà tracks, crea un array vuoto e aggiungi value ad esso.
+Se prop è tracks e value non è una stringa vuota, aggiungi value alla fine dell'array tracks già esistente.
+Se il valore value è una stringa vuota, elimina la proprietà prop dall'album.
+Nota: Una copia dell'oggetto recordCollection viene utilizzata per i test.
+
+// Setup
+var recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// Only change code below this line
+function updateRecords(records, id, prop, value) {
+  if (prop !== 'tracks' && value !== "") {
+    records[id][prop] = value;
+  } else if (prop === "tracks" && records[id].hasOwnProperty("tracks") === false) {
+    records[id][prop] = [value];
+  } else if (prop === "tracks" && value !== "") {
+    records[id][prop].push(value);
+  } else if (value === "") {
+    delete records[id][prop];
+  }
+  return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+
+
+
+
+Iterare con il ciclo While in Javascript
+
+È possibile eseguire lo stesso codice più volte utilizzando un ciclo.
+
+Il primo tipo di ciclo che vedremo è chiamato un ciclo while perché viene eseguito
+ finché (while) una condizione specificata è vera e si arresta una volta che la condizione non è più vera.
+
+const ourArray = [];
+let i = 0;
+
+while (i < 5) {
+  ourArray.push(i);
+  i++;
+}
+
+Nell'esempio di codice precedente, il ciclo while sarà eseguito 5 volte e aggiungerà i numeri da 0 a 4 a ourArray.
+
+Proviamo ad realizzare un ciclo che inserisca i valori in un array.
+Aggiungi i numeri da 5 a 0 (inclusi) in ordine decrescente a myArray utilizzando un ciclo while.
+
+// Setup
+const myArray = [];
+
+// Modifica il codice solo sotto questa riga
+let i = 5;
+while(i >= 0) {
+  myArray.push(i);
+  i--;
+};
+
+
+
+Iterare con i cicli For in Javascript
+
+È possibile eseguire lo stesso codice più volte utilizzando un ciclo.
+
+Il tipo più comune di ciclo JavaScript è chiamato un ciclo for perché esso viene eseguito per ("for") un numero specifico di volte.
+
+I cicli For sono dichiarati con tre espressioni facoltative separate da punti e virgola:
+
+for (a; b; c), dove a è l'istruzione di inizializzazione, b è la condizione, e c è l'espressione finale.
+
+L'istruzione di inizializzazione viene eseguita una sola volta prima dell'inizio del ciclo. 
+
+È tipicamente usata per definire e configurare la variabile del ciclo.
+
+La condizione viene valutata all'inizio di ogni iterazione del ciclo, e continuerà finché essa vale true. 
+
+Quando la condizione è false all'inizio dell'iterazione, il ciclo terminerà l'esecuzione. 
+
+Ciò significa che se la condizione inizia come false, il tuo ciclo non verrà mai eseguito.
+
+L'espressione finale è eseguita alla fine di ogni iterazione del ciclo, prima del prossimo controllo delle condizioni e 
+
+di solito viene utilizzata per aumentare o diminuire il contatore del ciclo.
+
+Nell'esempio seguente inizializziamo con i = 0 e iteriamo finché la nostra condizione i < 5 è vera. 
+
+Incrementeremo i di 1 ad ogni iterazione del ciclo con i++ come espressione finale.
+
+const ourArray = [];
+
+for (let i = 0; i < 5; i++) {
+  ourArray.push(i);
+}
+ourArray ha ora il valore [0, 1, 2, 3, 4].
+
+
+Esercizio
+
+Usa un ciclo for per inserire i valori da 1 a 5 in myArray.
+
+// Setup
+const myArray = [];
+
+// Modifica il codice solo sotto questa riga
+for(let i = 1; i < 6; i++){
+  myArray.push(i);
+};
+
+
+
+Iterare numeri dispari con un ciclo for
+
+I cicli for non devono necessariamente iterare un numero alla volta. 
+Modificando la nostra final-expression possiamo iterare solo sui numeri pari.
+
+Inizieremo da i = 0 e ripeteremo il ciclo finché i < 10. Incrementeremo i di 2 ad ogni ciclo con i += 2.
+
+const ourArray = [];
+
+for (let i = 0; i < 10; i += 2) {
+  ourArray.push(i);
+}
+ourArray ora conterrà [0, 2, 4, 6, 8]. Cambiamo la nostra initialization in modo da poter iterare sui numeri dispari.
+
+
+Esercizio
+
+Inserisci i numeri dispari da 1 a 9 in myArray usando un ciclo for.
+
+// Setup
+const myArray = [];
+
+// Modifica il codice solo sotto questa riga
+for(let i =1; i < 10; i += 2){
+  myArray.push(i);
+};
+
+
+
+Contare all'indietro con un ciclo For
+
+
+Un ciclo for può anche contare all'indietro, se definiamo le condizioni giuste.
+
+Per decrementare di due ad ogni iterazione, dovremo cambiare la nostra inizializzazione, la condizione e l'espressione finale.
+
+Inizieremo da i = 10 e ripeteremo finché i > 0. Diminuiremo i di 2 ad ogni ciclo con i -= 2.
+
+const ourArray = [];
+
+for (let i = 10; i > 0; i -= 2) {
+  ourArray.push(i);
+}
+ourArray adesso conterrà [10, 8, 6, 4, 2]. 
+
+
+Esercizio
+
+Cambiamo la nostra inizializzazione e espressione finale in modo da poter contare indietro di due 
+per creare un array di numeri dispari discendenti.
+
+Inserisci i numeri dispari da 9 a 1 in myArray usando un ciclo for.
+
+// Setup
+const myArray = [];
+
+// Modifica il codice solo sotto questa riga
+for(let i = 9; i > 0; i-=2){
+  myArray.push(i);
+};
+
+il nostro array sarà [9, 7, 5, 3, 1].
+
+
+
+Iterare attraverso un array con un ciclo For
+
+Un compito comune in JavaScript è quello di iterare attraverso i contenuti di un array. 
+
+Un modo per farlo è con un ciclo for. Questo codice visualizzerà ogni elemento dell'array arr nella console:
+
+const arr = [10, 9, 8, 7, 6];
+
+for (let i = 0; i < arr.length; i++) {
+   console.log(arr[i]);
+}
+Ricorda che gli array hanno un'indicizzazione basata sullo zero, 
+il che significa che l'ultimo indice dell'array è length - 1. 
+La nostra condizione per questo ciclo è i < arr.length che interrompe il ciclo quando i è uguale a length. 
+In questo caso l’ultima iterazione è i === 4 i.e. quando i diventa uguale a arr.length - 1 e 6 viene visualizzato nella la console. 
+Quindi i diventa 5, e il ciclo termina perché i < arr.length è uguale a false.
+
+Esercizio
+
+Dichiara una variabile total e inizializzala a 0. 
+Usa un ciclo for per sommare il valore di ogni elemento dell'array myArr a total.
+
+// Setup
+const myArr = [2, 3, 4, 5, 6];
+
+// Modifica il codice solo sotto questa riga
+let total = 0;
+for(let i = 0 ; i < myArr.length ; i++){
+total += myArr[i];
+};
+
+
+
+Annidare i cicli For
+
+Se disponi di un array multidimensionale, è possibile utilizzare la stessa logica del punto precedente 
+per iterare sia attraverso l'array che attraverso i suoi sottoarray. Ecco un esempio:
+
+const arr = [
+  [1, 2], [3, 4], [5, 6]
+];
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+Questo invia alla console ogni elemento presente in arr, uno alla volta. 
+Nota che nel ciclo interno leggiamo la .length di arr[i], dal momento che arr[i] è esso stesso un array.
+
+
+Esercizio
+
+Modifica la funzione multiplyAll in modo che restituisca il prodotto di tutti i numeri nei sotto-array di arr.
+
+function multiplyAll(arr) {
+  let product = 1;
+  // Only change code below this line
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      product = product * arr[i][j];
+    }
+  }
+  // Only change code above this line
+  return product;
+}
+
+// Modify values below to test your code
+multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
+
+
+
+
+Iterare con i cicli Do...While in Javascript
+
+
+Il prossimo tipo di ciclo che vedremo si chiama do...while.
+ Si chiama ciclo do... while perché prima eseguirà (do) un passaggio del codice all'interno del ciclo indipendentemente dalle condizioni,
+  e poi continuerà ad eseguire il ciclo finché (while) la condizione specificata avrà valore true.
+
+const ourArray = [];
+let i = 0;
+
+do {
+  ourArray.push(i);
+  i++;
+} while (i < 5);
+L'esempio sopra si comporta come altri tipi di cicli, e l'array risultante sarà [0, 1, 2, 3, 4].
+ Tuttavia, ciò che rende il do...while diverso da altri cicli è come si comporta quando la condizione fallisce al primo controllo.
+  
+ Vediamolo in azione. 
+  Ecco un loop while regolare che esegue il codice nel loop finché i < 5:
+
+const ourArray = []; 
+let i = 5;
+
+while (i < 5) {
+  ourArray.push(i);
+  i++;
+}
+In questo esempio, inizializziamo il valore di ourArray a un array vuoto e il valore di i a 5.
+ Quando eseguiamo il ciclo while, la condizione vale false perché i non è inferiore a 5, 
+ e in questo modo non eseguiremo il codice all'interno del ciclo. 
+ Il risultato è che ourArray finirà per non avere valori aggiunti,
+  e sarà ancora simile a [] quando tutto il codice nell'esempio precedente sarà stato completato.
+  
+  Ora, dai un'occhiata a un ciclo do...while:
+
+const ourArray = []; 
+let i = 5;
+
+do {
+  ourArray.push(i);
+  i++;
+} while (i < 5);
+
+In questo caso, inizializziamo il valore di i a 5, proprio come abbiamo fatto con il ciclo while. 
+Quando arriviamo alla linea successiva, non c'è alcuna condizione da valutare, 
+così passiamo al codice all'interno delle parentesi graffe e lo eseguiamo. 
+Aggiungeremo un singolo elemento all'array e quindi incrementeremo i prima di arrivare al controllo delle condizioni.
+
+Quando finalmente valutiamo la condizione i < 5 sull'ultima riga, vediamo che i è ora 6, che fallisce il controllo condizionale,
+  quindi usciamo dal ciclo e terminiamo l'esecuzione. 
+  Alla fine dell'esempio visto sopra, il valore di ourArray è [5]. 
+  
+  Essenzialmente, un ciclo do...while assicura che il codice all'interno del ciclo venga eseguito almeno una volta.
+  
+  
+
+  Esercizio
+  
+Proviamo ad ottenere un ciclo do...while che ci permetta di inserire dei valori in un array.
+Cambia il ciclo while nel codice con un ciclo do...while in modo che il ciclo inserisca solo il numero 10 in myArray,
+ e i sia uguale a 11 una volta che il codice sarà terminato.
+
+ // Setup
+const myArray = [];
+let i = 10;
+
+// Modifica il codice solo sotto questa riga
+do {
+  myArray.push(i);
+  i++;
+} while (i < 10);
+
+  Alla fine dell'esempio visto sopra, il valore di myArray è [10] e i = 11. 
+
+
+
+
+
+  Sostituire i cicli usando la ricorsione
+
+
+La ricorsione è il concetto che una funzione può essere espressa in termini di se stessa. 
+Per aiutarti a comprenderlo, 
+inizia pensando al seguente compito: moltiplica i primi n elementi di un array per creare il prodotto di questi elementi. 
+Utilizzando un ciclo for, potresti fare così:
+
+  function multiply(arr, n) {
+    let product = 1;
+    for (let i = 0; i < n; i++) {
+      product *= arr[i];
+    }
+    return product;
+  }
+Tuttavia, nota che multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]. 
+
+Questo significa che puoi riscrivere multiply in termini di se stessa e non aver mai bisogno di utilizzare un ciclo.
+
+  function multiply(arr, n) {
+    if (n <= 0) {
+      return 1;
+    } else {
+      return multiply(arr, n - 1) * arr[n - 1];
+    }
+  }
+La versione ricorsiva di multiply si interrompe in questo modo. 
+Nel caso base, dove n <= 0, restituisce 1. 
+Per valori più grandi di n, essa chiama sé stessa, ma con n - 1. 
+Quella chiamata di funzione è valutata allo stesso modo, chiamando multiply di nuovo fino a n <= 0.
+A questo punto, tutte le funzioni possono restituire il loro valore e l'originale multiply restituisce la risposta.
+
+Nota: 
+Le funzioni ricorsive devono avere un caso base quando ritornano senza richiamare di nuovo la funzione (in questo esempio, quando n <= 0), 
+altrimenti non potranno mai finire di eseguire.
+
+
+Esercizio
+
+Scrivi una funzione ricorsiva, sum(arr, n), che restituisce la somma dei primi elementi n di un array arr.
+
+function sum(arr, n) {
+  // Modifica il codice solo sotto questa riga
+if (n <= 0){
+  return 0;
+}else{
+  return sum(arr, n-1) + arr[n-1];
+}
+  // Modifica il codice solo sopra questa riga
+}
+
+
+
+Esercizio 
+Ricerca di un profilo
+
+
+Abbiamo un array di oggetti che rappresentano persone diverse nelle nostre liste di contatti.
+
+Abbiamo scritto per te una funzione lookUpProfile che prende name e una proprietà (prop) come argomenti.
+
+La funzione dovrebbe controllare se name è il firstName di un contatto effettivo e 
+la proprietà specificata (prop) è una proprietà di quel contatto.
+
+Se entrambe le condizioni sono soddisfatte, 
+restituisce il "valore" di quella proprietà.
+
+Se name non corrisponde a nessun contatto, 
+restituisce la stringa No such contact.
+
+Se prop non corrisponde ad alcuna proprietà valida di un contatto trovato cercando name, 
+restituisce la stringa No such property.
+
+
+// Setup
+const contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile(name, prop) {
+  // Modifica il codice solo sotto questa riga
+  for (let x = 0; x < contacts.length; x++) {
+    if (contacts[x].firstName === name) {
+      if (contacts[x].hasOwnProperty(prop)) {
+        return contacts[x][prop];
+      } else {
+        return "No such property";
+      }
+    }
+  }
+  return "No such contact";
+
+  // Modifica il codice solo sopra questa riga
+}
+
+lookUpProfile("Akira", "likes");
+
+
+Spiegazione del codice
+Il forciclo viene eseguito, a partire dal primo oggetto nell'elenco dei contatti .
+Se il parametro firstName passato alla funzione corrisponde al valore della "firstName"chiave nel primo oggetto, l' ifistruzione passa.
+Quindi, utilizziamo .hasOwnProperty()il metodo (verifica se esiste una determinata proprietà e restituisce un booleano) con prop come argomento. Se è vero, viene restituito il valore di prop .
+Se la seconda ifistruzione ha esito negativo, No such propertyviene restituito.
+Se la prima ifistruzione non riesce, il forciclo continua all'oggetto successivo nell'elenco dei contatti .
+Se il parametro firstName non corrisponde all'oggetto contattifor finali, il ciclo esce e No such contactviene restituito.
+Esempio Esegui
+
+lookUpProfile("Akira","likes");corre.
+"Akira"è abbinato alla "firstName"chiave nel primo oggetto, quindi l' ifistruzione restituisce true.
+"likes"si trova all'interno del primo oggetto, quindi la seconda ifistruzione restituisce true.
+"likes"Viene restituito il valore di - "Pizza", "Coding", "Brownie Points".
+
+
+Soluzione Alternativa
+
+function lookUpProfile(name, prop) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName === name) {
+      if (prop in contacts[i]) {
+        return contacts[i][prop];
+      } else {
+        return "No such property";
+      }
+    }
+  }
+  return "No such contact";
+}
+
+Utilizzando operatore IN 
+L' inoperatore restituisce truese la proprietà specificata si trova nell'oggetto specificato o nella sua catena di prototipi.
+
+
+
+
+
+Generare frazioni casuali con JavaScript
+
+
+I numeri casuali sono utili per creare comportamenti casuali.
+
+JavaScript ha una funzione Math.random() che genera un numero decimale casuale tra 0 (incluso) e 1 (escluso). 
+Così Math.random() può restituire uno 0 ma mai un 1.
+
+Nota: Come visto in Memorizzare valori con l'operatore di assegnazione, 
+tutte le chiamate di funzione saranno risolte prima dell'esecuzione del return, 
+così possiamo fare un return del valore della funzione Math.random().
+
+
+function randomFraction() {
+
+  // Modifica il codice solo sotto questa riga
+
+  return Math.random();
+
+  // Modifica il codice solo sopra questa riga
+}
+
+
+Generare numeri interi casuali con JavaScript
+
+
+È fantastico poter generare numeri decimali casuali, ma è ancora più utile poter generare numeri interi casuali.
+
+Utilizza Math.random() per generare un decimale casuale.
+Moltiplica quel decimale casuale per 20.
+Usa un'altra funzione, Math.floor() per arrotondare il numero per difetto al numero intero più vicino.
+Ricorda che Math.random() non può mai restituire un 1 e, poiché stiamo arrotondando per difetto, 
+è impossibile ottenere effettivamente 20. 
+Questa tecnica ci darà un numero intero tra 0 e 19.
+
+Mettendo tutto insieme, questo è il nostro codice:
+
+Math.floor(Math.random() * 20);
+Stiamo chiamando Math.random(), 
+moltiplicando il risultato per 20, quindi passando il valore alla funzione 
+Math.floor() per arrotondare il valore per difetto al numero intero più vicino.
+
+Usa questa tecnica per generare e restituire un numero intero casuale tra 0 e 9.
+
+
+function randomWholeNum() {
+
+  // Modifica il codice solo sotto questa riga
+
+  return Math.floor(Math.random()*10);
+}
+
+
+
+Generare numeri interi casuali all'interno di un intervallo
+
+Invece di generare un numero intero casuale tra zero e un dato numero come abbiamo fatto prima, 
+possiamo generare un numero intero casuale che rientri in un intervallo tra due numeri specifici.
+
+Per fare questo, definiremo un numero minimo min e un numero massimo max.
+
+Ecco la formula che useremo. Prenditi un momento per leggerlo e prova a capire cosa sta facendo questo codice:
+
+Math.floor(Math.random() * (max - min + 1)) + min
+
+function randomRange(myMin, myMax) {
+  // Modifica il codice solo sotto questa riga
+  return Math.floor(Math.random()*(myMax - myMin +1)) + myMin;
+  // Modifica il codice solo sopra questa riga
+}
+
+
+Math.random()genera il nostro numero casuale compreso tra 0 e ≈ 0,9.
+Prima di moltiplicarlo, risolve la parte tra parentesi (myMax - myMin + 1)a causa dell'operatore di raggruppamento ( ).
+Il risultato di tale moltiplicazione è seguito dall'addizione myMine 
+quindi "arrotondato" all'intero più grande minore o uguale ad esso (es: 9,9 risulterebbe in 9)
+
+Se i valori fossero myMin = 1, myMax= 10, 
+un risultato potrebbe essere il seguente:
+
+Math.random() = 0.8244326990411024
+(myMax - myMin + 1) = 10 - 1 + 1 -> 10
+a * b = 8.244326990411024
+c + myMin = 9.244326990411024
+Math.floor(9.244326990411024) = 9
 
